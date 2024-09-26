@@ -70,16 +70,16 @@ for (let eqb of PENDLE_POOL_ADDRESSES.EQB_STAKING) {
     });
 }
 
-for (let pp of PENDLE_POOL_ADDRESSES.PENPIE_RECEIPT_TOKEN) {
-  ERC20Processor.bind({
-    address: pp,
-    startBlock: PENDLE_POOL_ADDRESSES.START_BLOCK,
-    name: 'Penpie Receipt Token',
-    network: CONFIG.BLOCKCHAIN,
-  }).onEventTransfer(async (evt, ctx) => {
-    await processAllLPAccounts(ctx, [evt.args.from.toLowerCase(), evt.args.to.toLowerCase()]);
-  });
-}
+// for (let pp of PENDLE_POOL_ADDRESSES.PENPIE_RECEIPT_TOKEN) {
+//   ERC20Processor.bind({
+//     address: pp,
+//     startBlock: PENDLE_POOL_ADDRESSES.START_BLOCK,
+//     name: 'Penpie Receipt Token',
+//     network: CONFIG.BLOCKCHAIN,
+//   }).onEventTransfer(async (evt, ctx) => {
+//     await processAllLPAccounts(ctx, [evt.args.from.toLowerCase(), evt.args.to.toLowerCase()]);
+//   });
+// }
 
 ERC20Processor.bind({
   address: PENDLE_POOL_ADDRESSES.STAKEDAO_RECEIPT_TOKEN,
